@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="黄元畅的中文简历：日本本地活动与跨语言内容执行。" />
+    <title>黄元畅｜日本本地活动与跨语言内容</title>
+    <style>
+      :root {
+        --ink: #14263b;
+        --muted: #59697a;
+        --paper: #f8f8f5;
+        --line: #cfd8df;
+        --blue: #155a92;
+        --blue-pale: #e6f0f5;
+        --orange: #cf6d32;
+        --serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+        --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: var(--blue);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      a:hover { color: var(--blue); }
+
+      a:focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+
+      .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+      .masthead {
+        min-height: 100svh;
+        display: grid;
+        grid-template-columns: minmax(240px, .88fr) minmax(0, 1.62fr);
+        gap: clamp(32px, 8vw, 120px);
+        align-items: end;
+        padding: 44px 0 62px;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .identity { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; }
+
+      .monogram {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        color: var(--paper);
+        background: var(--ink);
+        font-family: var(--serif);
+        font-size: 22px;
+        letter-spacing: -2px;
+      }
+
+      .role {
+        margin: 52px 0 0;
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .08em;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        max-width: 9em;
+        margin-bottom: 21px;
+        font-family: var(--serif);
+        font-size: clamp(52px, 7.6vw, 108px);
+        font-weight: 600;
+        line-height: .98;
+        letter-spacing: -.09em;
+      }
+
+      .intro {
+        max-width: 615px;
+        margin-bottom: 32px;
+        font-family: var(--serif);
+        font-size: clamp(22px, 2.5vw, 34px);
+        line-height: 1.45;
+        letter-spacing: -.025em;
+      }
+
+      .school {
+        max-width: 42em;
+        margin-bottom: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
+      .school span { color: var(--muted); font-weight: 400; }
+
+      .credentials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin: 26px 0 0;
+        padding: 0;
+        color: var(--muted);
+        font-size: 14px;
+        list-style: none;
+      }
+
+      .credentials li + li { border-left: 1px solid var(--line); padding-left: 20px; }
+
+      .hero-note {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .page-grid {
+        display: grid;
+        grid-template-columns: minmax(220px, .88fr) minmax(0, 1.62fr);
+        gap: clamp(32px, 8vw, 120px);
+      }
+
+      .side-nav {
+        padding-top: 69px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .side-nav p { margin-bottom: 12px; color: var(--ink); font-weight: 700; }
+
+      .side-nav ul { margin: 0; padding: 0; list-style: none; }
+
+      .side-nav li { margin: 6px 0; }
+
+      .side-nav a { text-decoration: none; }
+
+      main { padding-bottom: 30px; }
+
+      section { padding: 66px 0; border-bottom: 1px solid var(--line); }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: 38px 1fr;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 39px;
+      }
+
+      .section-index { color: var(--blue); font-size: 13px; font-weight: 700; }
+
+      h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(27px, 3vw, 39px);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -.045em;
+      }
+
+      .case { position: relative; padding-left: 28px; }
+      .case + .case { margin-top: 52px; }
+      .case::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        bottom: -52px;
+        left: 4px;
+        width: 1px;
+        background: var(--line);
+      }
+      .case:last-child::before { bottom: auto; height: 0; }
+      .case::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 9px;
+        height: 9px;
+        border: 2px solid var(--blue);
+        border-radius: 50%;
+        background: var(--paper);
+      }
+
+      .case-meta { margin-bottom: 6px; color: var(--blue); font-size: 14px; font-weight: 700; }
+      h3 { margin-bottom: 13px; font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
+      .case-copy { max-width: 630px; margin-bottom: 0; }
+      .case strong { color: var(--blue); font-weight: 700; }
+
+      .evidence-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .evidence {
+        min-height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 18px;
+        border: 1px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .evidence small { color: var(--muted); font-size: 12px; }
+      .evidence .metric { margin: 8px 0; color: var(--blue); font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); font-weight: 600; line-height: 1; letter-spacing: -.06em; }
+      .evidence a { align-self: flex-start; font-size: 14px; font-weight: 700; }
+
+      .work-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        margin-top: 20px;
+        padding: 7px 14px;
+        border: 1px solid var(--blue);
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .work-link:hover { color: var(--paper); background: var(--blue); }
+
+      .split-note {
+        display: grid;
+        grid-template-columns: .72fr 1.28fr;
+        gap: 24px;
+        padding: 26px 0 0;
+      }
+
+      .split-note p:first-child { color: var(--blue); font-size: 14px; font-weight: 700; }
+      .split-note p:last-child { max-width: 580px; margin-bottom: 0; }
+
+      .method-list { margin: 0; padding: 0; list-style: none; }
+      .method-list li { display: grid; grid-template-columns: 128px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }
+      .method-list strong { color: var(--blue); font-size: 14px; }
+      .method-list span { max-width: 590px; }
+
+      .footer { padding: 34px 0 54px; color: var(--muted); font-size: 13px; }
+      .footer p { margin: 0; }
+
+      /* The desktop composition follows the paired content-and-profile rhythm of the Figma reference. */
+      :root {
+        --ink: #202a3a;
+        --muted: #617084;
+        --paper: #fbfcff;
+        --line: #dce3ee;
+        --blue: #3152ad;
+        --blue-pale: #eef2ff;
+      }
+
+      .masthead {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1.75fr) minmax(230px, .75fr);
+        gap: 52px;
+        align-items: center;
+        padding: 30px 0 38px;
+      }
+
+      .nameplate {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .02em;
+      }
+
+      .hero-copy { min-width: 0; }
+      .role { margin: 0 0 12px; font-size: 12px; letter-spacing: .04em; }
+      h1 { max-width: none; margin: 0 0 16px; font-size: clamp(37px, 4.55vw, 60px); line-height: 1.08; letter-spacing: -.065em; }
+      .intro { max-width: 635px; margin-bottom: 20px; font-family: var(--sans); font-size: 15px; line-height: 1.8; letter-spacing: 0; }
+      .credentials { margin-top: 0; font-size: 12px; }
+      .profile-card { align-self: stretch; padding: 24px; background: var(--blue-pale); color: var(--ink); }
+      .profile-card p { margin-bottom: 13px; font-size: 14px; font-weight: 700; line-height: 1.55; }
+      .profile-card .profile-name { margin-bottom: 21px; color: var(--blue); font-size: 12px; }
+      .profile-card .profile-sub { margin-bottom: 8px; color: var(--muted); font-size: 12px; font-weight: 400; }
+
+      .page-grid { display: block; }
+      .side-nav { display: none; }
+      main { padding-bottom: 0; }
+      section { padding: 34px 0 42px; }
+      .section-heading { display: block; margin-bottom: 18px; }
+      .section-index { display: block; margin-bottom: 5px; font-size: 11px; }
+      h2 { font-family: var(--sans); font-size: 24px; letter-spacing: -.04em; }
+
+      #work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      #work .section-heading { grid-column: 1 / -1; margin-bottom: 0; }
+      .case, .case + .case { margin-top: 0; padding: 22px; border: 1px solid var(--line); background: #fff; }
+      .case::before, .case::after { display: none; }
+      .case-meta { margin-bottom: 9px; font-size: 11px; letter-spacing: .01em; }
+      h3 { margin-bottom: 10px; font-size: 21px; line-height: 1.35; }
+      .case-copy { font-size: 14px; line-height: 1.75; }
+      .evidence-row { gap: 8px; margin-top: 16px; }
+      .evidence { min-height: 130px; padding: 13px; border-color: var(--line); background: var(--blue-pale); }
+      .evidence .metric { margin: 4px 0; font-size: 33px; }
+      .evidence a { font-size: 12px; }
+      .work-link { min-height: 37px; margin-top: 16px; padding: 6px 10px; font-size: 12px; }
+
+      #field .case { border-color: var(--line); }
+      .split-note { grid-template-columns: 180px 1fr; gap: 18px; padding: 16px 22px; border: 1px solid var(--line); border-top: 0; background: var(--blue-pale); }
+      .split-note p { font-size: 14px; }
+      .method-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); background: #fff; }
+      .method-list li { display: block; min-height: 150px; padding: 20px; border: 0; }
+      .method-list li + li { border-left: 1px solid var(--line); }
+      .method-list strong { display: block; margin-bottom: 8px; font-size: 13px; }
+      .method-list span { font-size: 14px; line-height: 1.75; }
+
+      @media (max-width: 700px) {
+        .wrap { width: min(100% - 36px, 560px); }
+        .masthead, .page-grid { display: block; }
+        .masthead { min-height: auto; padding: 20px 0 32px; }
+        .nameplate { padding-bottom: 9px; }
+        .hero-copy { padding: 29px 0 22px; }
+        .role { margin-bottom: 9px; }
+        h1 { max-width: none; margin-top: 0; font-size: clamp(34px, 10.4vw, 49px); }
+        .intro { font-size: 14px; }
+        .profile-card { padding: 19px; }
+        .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 14px; }
+        .credentials li + li { padding-left: 0; border-left: 0; }
+        section { padding: 32px 0; }
+        .section-heading { margin-bottom: 17px; }
+        #work { display: block; }
+        #work .section-heading { margin-bottom: 17px; }
+        .case, .case + .case { padding: 19px; }
+        #work .case + .case { margin-top: 12px; }
+        .evidence-row { grid-template-columns: 1fr; }
+        .evidence { min-height: 145px; }
+        .split-note { display: block; padding: 16px 19px; }
+        .split-note p:first-child { margin-bottom: 10px; }
+        .method-list { display: block; }
+        .method-list li { display: block; min-height: auto; }
+        .method-list li + li { border-top: 1px solid var(--line); border-left: 0; }
+        .method-list strong { display: block; margin-bottom: 5px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+      @media print {
+        body { background: #fff; font-size: 11pt; }
+        .masthead { min-height: auto; }
+        .side-nav { display: none; }
+        .page-grid { display: block; }
+        section { break-inside: avoid; }
+        .work-link { color: var(--ink); }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap masthead">
+      <p class="nameplate">黄元畅 / HUANG Yuanchang</p>
+      <div class="hero-copy">
+        <p class="role">日本本地活动与跨语言内容</p>
+        <h1>在日本做活动，<br />也做跨语言内容</h1>
+        <p class="intro">我在日本用日语协作执行活动，也能从创意、拍摄到发布和复盘，独立推进面向不同语言受众的社媒内容。</p>
+        <ul class="credentials" aria-label="基础信息">
+          <li>MEXT 奖学金</li>
+          <li>中文母语</li>
+          <li>JLPT N2</li>
+          <li>IELTS 8.0</li>
+        </ul>
+      </div>
+      <aside class="profile-card" aria-label="教育背景">
+        <p class="profile-name">黄元畅 · SILS</p>
+        <p>早稻田大学<br />国际教养学部</p>
+        <p class="profile-sub">School of International Liberal Studies</p>
+        <p class="profile-sub">大一 · 2026 年春季入学</p>
+      </aside>
+    </header>
+
+    <div class="wrap page-grid">
+      <nav class="side-nav" aria-label="页面目录">
+        <p>经历与证据</p>
+        <ul>
+          <li><a href="#work">内容与发布</a></li>
+          <li><a href="#field">本地执行</a></li>
+          <li><a href="#approach">拟拓展的日本社群</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section id="work" aria-labelledby="work-heading">
+          <div class="section-heading">
+            <h2 id="work-heading">把创意变成可发布、可核对的内容</h2>
+          </div>
+
+          <article class="case">
+            <p class="case-meta">早稻田 CSSA · 早稻田祭短片与 SNS 运营</p>
+            <h3>从现场统筹到发布后的数据跟进</h3>
+            <p class="case-copy">主导两条早稻田祭短片，从创意、人员分工和场地设备协调，到终剪、音效、封面、发帖及数据跟进。以下为两条作品的 Instagram 单条浏览量（2026-11-21 后台存档）。</p>
+            <div class="evidence-row" aria-label="早稻田祭 Instagram Reels 作品">
+              <article class="evidence">
+                <small>Instagram Reel · 冰块</small>
+                <p class="metric">1,406 <small>次浏览</small></p>
+                <a href="https://www.instagram.com/reel/DfUbYvfTtE5/" target="_blank" rel="noopener noreferrer" aria-label="在 Instagram 查看《冰块》原帖">在 Instagram 查看《冰块》原帖</a>
+              </article>
+              <article class="evidence">
+                <small>Instagram Reel · One Last Sweet Stop</small>
+                <p class="metric">2,175 <small>次浏览</small></p>
+                <a href="https://www.instagram.com/reel/DfdZ1IvzCk6/" target="_blank" rel="noopener noreferrer" aria-label="在 Instagram 查看《One Last Sweet Stop》原帖">在 Instagram 查看《One Last Sweet Stop》原帖</a>
+              </article>
+            </div>
+          </article>
+
+          <article class="case">
+            <p class="case-meta">Cosmoswork · 市场与品牌内容实习 · 2026 年 8–9 月</p>
+            <h3>在质量标准下处理跨平台发布</h3>
+            <p class="case-copy">把已有内容整理成 <strong>18 期小宇宙播客发布包</strong>，完成 <strong>6 条 YouTube 视频的英文包装与排期设置</strong>。先做单条样例确认标准，再用 AI 辅助改写，逐条人工核对来源、品牌语气和素材版本。</p>
+            <a class="work-link" href="https://youtu.be/bLVCycm2_6Q" target="_blank" rel="noopener noreferrer">查看品牌 YouTube 视频示例</a>
+          </article>
+        </section>
+
+        <section id="field" aria-labelledby="field-heading">
+          <div class="section-heading">
+            <h2 id="field-heading">在本地场景中协作、沟通与推进</h2>
+          </div>
+          <article class="case">
+            <p class="case-meta">日本本地活动与外联</p>
+            <h3>把现场细节落实到日语沟通中</h3>
+            <p class="case-copy">用日语收银，并与负责早稻田祭运营的日本同学沟通。在 CSSA 参与熊猫外卖日本的合作洽谈，为日興総業撰写合作提案。语言能力不只在履历上，也用于现场协调和跨团队对话。</p>
+          </article>
+          <div class="split-note">
+            <p>语言与协作</p>
+            <p>中文母语；以 JLPT N2 参与日语现场沟通。能够在创意、运营和本地执行之间切换，确保信息、物料与人员在同一节奏上。</p>
+          </div>
+        </section>
+
+        <section id="approach" aria-labelledby="approach-heading">
+          <div class="section-heading">
+            <h2 id="approach-heading">我会从这些日本社群开始</h2>
+          </div>
+          <ul class="method-list">
+            <li><strong>创作者社群</strong><span>从本地创作者活动和 AI 视频社群找到愿意试用的创作者，邀请体验并记录使用场景。</span></li>
+            <li><strong>营销从业者</strong><span>从市场活动和运营社群接触从业者，了解案例和工作坊需求。</span></li>
+            <li><strong>电商卖家</strong><span>从卖家交流及服务商活动找商家，围绕商品图与短视频准备演示，并记录报名、到场、注册及后续使用反馈。</span></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer class="wrap footer">
+      <p>本页仅展示可公开核对的内容与作品链接；数据说明见对应案例。</p>
+    </footer>
+  </body>
+</html>
