@@ -75,6 +75,9 @@
 | 56 | 浏览器标题 | 黄元畅 · 日本市场实习简历 | 已通过 |
 | 57 | 联系方式 | 新增 `huangyuanchang2006@gmail.com`，位于 IELTS/JLPT 下方，mailto 链接 | 已落地 |
 | 58 | CSSA 增长数据 | 新增三栏：观看 **+150.2%**、观看人数 **+435.6%**、粉丝观看 **+155.5%** | 已落地 |
+| 59 | 桌面侧栏导航 | 目录：About Me、宇宙EBIKE品牌运营、@wasedcssa Instagram、小红书个人IP、现场与社群、Vibecoding项目 | 已落地 |
+| 60 | RateMyCourse 上线数据 | **1,500+**，上线 10 天内浏览 | 已落地；用户本轮确认 |
+| 61 | RateMyCourse 提交数据 | **36**，GitHub 公开仓库提交 | 已落地；2026-11-22 经 GitHub API 核验 |
 
 ## 本轮新增：CSSA 由「客观数据」改为「增长数据」
 

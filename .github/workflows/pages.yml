@@ -1,0 +1,42 @@
+name: Deploy resume to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Prepare published site
+        run: |
+          mkdir public
+          cp "notes/resume-review/黄元畅 AI产品活动Resume.html" public/index.html
+          cp notes/resume-review/portrait.jpg public/
+          cp notes/resume-review/ice-cover.jpg public/
+          cp notes/resume-review/may-festival.jpg public/
+          cp notes/resume-review/connectiv.jpg public/
+          cp notes/resume-review/landing.jpg public/
+          cp "output/pdf/黄元畅-AI产品市场活动简历.pdf" public/resume.pdf
+          touch public/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
