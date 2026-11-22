@@ -6,221 +6,192 @@
 <style>
 * { box-sizing:border-box }
 html { scroll-behavior:smooth }
-:root { --blue:#193e85; --ink:#19222c; --quiet:#515d69; --line:#bec9cf; --wash:#e7edf3 }
-body { margin:0; font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; color:var(--ink); background:#fcfbf7 }
-main { max-width:1280px; margin:auto; padding:0 clamp(22px,5.62vw,72px) 54px }
-p,h1,h2,h3,h4,ul,ol { margin:0 }
-h1,h2,h3,.numbers,.count { font-family:"Songti SC","STSong",Georgia,serif }
-.top,.credentials,.metrics,.twocol { display:flex; gap:24px }
-.top { justify-content:space-between; align-items:baseline }
-.top { padding:21px 0 13px; border-bottom:2px solid var(--ink); font-size:14px; font-weight:600 }
-header { display:grid; grid-template-columns:minmax(0,1fr) minmax(180px,28%); gap:6%; align-items:center; padding:30px 0 36px }
-.portrait { display:block; width:100%; height:clamp(250px,25vw,320px); object-fit:cover; object-position:50% 35% }
-.bio { min-width:0 }
-.credentials { margin-top:18px }
-.roles li + li { border-left:1px solid var(--line); padding-left:14px }
-.case-title { background:#193659; color:#fff; padding:24px; display:flex; flex-direction:column; justify-content:space-between }
-.date { color:#e4e9ef; font:italic 16px/1.5 Georgia,serif }
-.case-title h2 { margin:28px 0; font-size:clamp(40px,4.6vw,60px); line-height:1.04 }
-.case-title h2 span { display:block; font-weight:400; font-style:italic }
-.case-body { background:#f0efe9; padding:22px clamp(16px,2vw,28px) }
-
-h1 { font-size:clamp(62px,6.5vw,84px); line-height:1.15; letter-spacing:-.03em }
-
-.roles { display:grid; grid-template-columns:repeat(4,max-content); gap:4px 14px; padding:0; margin-top:12px; list-style:none; font-size:15px; font-weight:600; line-height:1.5 }
-.roman { display:block; font:italic 26px/1.22 Georgia,serif; letter-spacing:0; padding-top:5px }
-.credentials { gap:30px; color:var(--blue); align-items:baseline }
-.credentials strong { font:normal clamp(30px,3vw,46px)/1 Georgia,serif }
-.credentials b { font:600 13px/1.4 -apple-system,sans-serif; margin-right:7px }
-.contact { margin-top:16px; font-size:14px }
-.contact a { min-height:0; font-weight:600 }
+:root { --blue:#193e85; --ink:#19222c; --quiet:#515d69; --line:#bec9cf; --paper:#fcfbf7 }
+body { margin:0; font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; color:var(--ink); background:var(--paper) }
+p,h1,h2,h3,h4,ul,ol,figure { margin:0 }
+.keep,.reel-title { white-space:nowrap }
+h1,h2,.numbers,.count { font-family:"Songti SC","STSong",Georgia,serif }
+main { max-width:1100px; margin:auto; padding:0 clamp(22px,5.62vw,72px) 54px }
+.top { display:flex; justify-content:space-between; gap:8px; padding:21px 0 12px; border-bottom:2px solid var(--ink); font-size:14px; font-weight:600 }
+header { display:grid; grid-template-columns:minmax(0,1fr) clamp(150px,24%,250px); gap:5%; align-items:center; padding:23px 0 26px }
+.portrait { display:block; width:100%; aspect-ratio:1; object-fit:cover; object-position:50% 35% }
+h1 { font-size:clamp(54px,6vw,78px); line-height:1.08; letter-spacing:-.03em }
+.roman { display:block; font:italic 25px/1.22 Georgia,serif; letter-spacing:0; margin-top:5px }
+.roles { display:flex; flex-wrap:wrap; gap:2px 16px; padding:0; margin-top:10px; list-style:none; color:var(--quiet); font-size:14px; font-weight:550 }
+.intro { margin-top:16px; font-size:18px; font-weight:550 }
 .intro span { display:inline-block }
-.intro { margin-top:22px; font-weight:550; font-size:20px }
 .meta { color:var(--quiet); font-size:14px }
-header .meta { margin-top:6px }
-.feature { display:grid; grid-template-columns:minmax(175px,22%) minmax(0,1fr) }
-h2 { font-size:clamp(30px,3.2vw,44px); letter-spacing:-.025em; line-height:1.3 }
-h2 span { font-family:Georgia,serif }
-.feature .role { color:#eef1f4; margin-top:5px }
-.twocol { gap:5% }
-.deliver,.flow { flex:1; min-width:0 }
-.feature h3 { font:650 18px/1.5 -apple-system,"PingFang SC",sans-serif; border-bottom:1px solid #9eacbb; padding-bottom:8px }
-.metrics { margin:14px 0; gap:20px }
-.metrics > div { flex:1 }
-.metrics > div:first-child { flex:1.5 }
-.numbers,.count { color:var(--blue); font-size:58px; line-height:1.1 }
-.numbers small { font:500 16px -apple-system,sans-serif; margin-left:5px }
-.metrics b { display:block; font-size:16px; margin:4px 0 }
-.metrics p,.flow p { font-size:14px; color:#344355 }
-ol { list-style:none; padding:0; counter-reset:step }
-ol li { position:relative; padding:10px 0 0 32px; counter-increment:step }
-ol li:before { content:counter(step,decimal-leading-zero); position:absolute; left:0; top:13px; font:13px/1.5 Georgia,serif; color:var(--blue) }
-a { display:inline-flex; align-items:center; min-height:44px; color:var(--blue); text-underline-offset:4px; gap:8px }
-a i { font:normal 16px/1 sans-serif; transition:transform 150ms ease-out }
-@media(hover:hover) and (pointer:fine){ a:hover i { transform:translate(2px,-2px) } }
+header .meta { margin-top:4px; text-wrap:pretty }
+.credentials { display:flex; align-items:baseline; gap:24px; margin-top:12px; color:var(--ink) }
+.credentials strong { font:normal clamp(24px,2.6vw,34px)/1 Georgia,serif }
+.credentials b { font:600 13px/1.4 -apple-system,sans-serif; margin-right:7px }
+.contact { margin-top:3px; font-size:14px }
+.contact a { font-weight:500 }
+
+h2 { font-size:clamp(27px,3.2vw,37px); letter-spacing:-.025em; line-height:1.23 }
+.case-title { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:12px; align-items:baseline; padding:12px 0 15px; border-top:2px solid var(--blue) }
+.case-title h2 { grid-row:1; grid-column:1; color:var(--blue); font-size:clamp(30px,4vw,48px) }
+.case-title h2 span { font-family:Georgia,serif; font-weight:400; font-style:italic }
+.date { grid-column:2; grid-row:1; font:italic 15px/1.5 Georgia,serif; color:var(--quiet) }
+.case-title .role { grid-column:1/-1; margin-top:2px; font-size:15px }
+.case-body { padding-bottom:9px }
+.twocol { display:grid; grid-template-columns:minmax(0,1.16fr) minmax(0,1fr); gap:6% }
+.feature h3 { font-size:17px; line-height:1.4 }
+.metrics { display:grid; gap:10px; margin:12px 0 2px }
+.metrics > div { display:grid; grid-template-columns:4.2rem minmax(0,1fr); column-gap:10px; align-items:start }
+.numbers { color:var(--blue); font-size:48px; line-height:1; white-space:nowrap }
+.numbers small { font:500 14px -apple-system,sans-serif; margin-left:3px }
+.metrics b { display:block; margin-top:3px; font-size:15px }
+.metrics p,.flow p,.feature footer p { font-size:14px; color:var(--quiet); text-wrap:pretty }
+ol { list-style:none; padding:0; counter-reset:step; margin-top:10px }
+ol li { position:relative; padding-left:26px; counter-increment:step }
+ol li + li { margin-top:8px }
+ol li::before { content:counter(step,decimal-leading-zero); position:absolute; left:0; top:.22em; font:13px/1.5 Georgia,serif; color:var(--blue) }
+ol h4 { font-size:15px }
+.feature footer { margin-top:5px; padding:10px 12px; background:#f0efe9 }
+#instagram { border-top:1px solid var(--line) }
+
+a { display:inline-block; align-content:center; min-height:44px; color:var(--blue); text-underline-offset:4px; text-decoration-thickness:1px }
+a i { display:inline-block; margin-inline-start:.4em; font:normal .875em/1 sans-serif; transition:transform 150ms ease-out }
+@media (hover:hover) and (pointer:fine) { a:hover i { transform:translate(2px,-2px) } }
 a:focus-visible { outline:2px solid var(--blue); outline-offset:3px }
-@media(prefers-reduced-motion:reduce){ html { scroll-behavior:auto } a i,.side-nav a { transition:none } a:hover i { transform:none } }
-.feature footer { margin-top:17px; padding-top:10px; border-top:1px solid #aab7c5 }
-.feature footer p { font-size:14px }
-.entry { display:grid; grid-template-columns:minmax(0,30%) minmax(0,1fr); column-gap:5%; padding:34px 0; border-bottom:1px solid var(--line) }
-.entry h2 { font-size:32px; margin-top:4px }
-.count { font-size:32px; margin-right:8px }
+@media (prefers-reduced-motion:reduce) {
+ html { scroll-behavior:auto }
+ a i,.side-nav a { transition:none }
+ a:hover i { transform:none }
+}
+header,.feature,.entry { scroll-margin-top:24px }
+.entry { display:grid; grid-template-columns:minmax(0,1fr) minmax(145px,25%); grid-template-areas:"heading media" "body media"; align-content:start; grid-template-rows:auto 1fr; column-gap:5%; padding:25px 0; border-bottom:1px solid var(--line) }
+.entry-heading { grid-area:heading; margin-bottom:12px }
+.entry-body { grid-area:body; min-width:0 }
+.entry h2 { margin-top:3px }
+.entry p { text-wrap:pretty }
+.entry figure { grid-area:media; align-self:start; justify-self:end; width:100%; max-width:255px; margin-top:8px }
+.entry figure.ice-cover { max-width:156px; align-self:center }
+@media screen and (min-width:721px) {
+ #xiaohongshu figure { align-self:end; margin-bottom:4px }
+ .field figure { align-self:center }
+}
+figure img { display:block; width:100%; height:auto }
+figcaption { margin-top:5px; font-size:12px; color:var(--quiet); text-wrap:pretty }
+.course-shot { display:block; border:1px solid var(--line) }
+.count { color:var(--blue); font-size:34px; font-weight:400; line-height:1.1; margin-right:7px }
 .headline { margin:4px 0 }
-.reel { padding:6px 0 8px; display:flex; justify-content:space-between; gap:12px; align-items:baseline; border-bottom:1px solid var(--line) }
+.growth { display:flex; flex-wrap:wrap; gap:9px clamp(12px,3vw,36px); margin:12px 0 4px }
+.growth b,.project-number { display:block; color:var(--blue); font:normal clamp(23px,2.6vw,33px)/1.06 Georgia,serif; letter-spacing:-.025em }
+.growth > div:nth-child(2) b { font-weight:700 }
+.growth span,.project-stat span { display:block; margin-top:4px; color:var(--quiet); font-size:13px }
+.reel { display:flex; justify-content:space-between; gap:12px; align-items:baseline; max-width:26rem }
+.reel + .reel { border-top:1px solid var(--line) }
 .reel span { white-space:nowrap; font-size:13px; color:var(--quiet) }
-.growth { display:flex; gap:clamp(14px,2.4vw,28px); margin:15px 0 6px }
-.growth > div { flex:1; min-width:0 }
-.growth b { display:block; color:var(--blue); font-family:Georgia,"Songti SC",serif; font-weight:600; font-size:clamp(23px,2.5vw,32px); line-height:1.05; letter-spacing:-.02em }
-.growth span { display:block; margin-top:5px; color:var(--quiet); font-size:13px }
-.notes { margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:5% }
-.notes h3 { font-size:21px; margin-bottom:8px }
-.notes p,.entry .meta { font-size:14px }
+.creator-work { margin-top:7px }
+.creator-work + .creator-work { margin-top:0 }
+.creator-work a { font-weight:500; text-wrap:pretty }
+.creator-work p { font-size:15px; max-width:39em }
+.field article + article { margin-top:14px }
+.field h3 { font-size:17px; margin-bottom:2px }
+.project-stats { display:flex; flex-wrap:wrap; gap:9px clamp(24px,4vw,48px); margin:13px 0 4px }
+.project-links { display:flex; flex-wrap:wrap; column-gap:24px }
+.course-project .tagline { font:italic 17px/1.45 Georgia,serif; color:var(--quiet); margin-top:3px }
+.course-project { border-bottom:0; padding-bottom:0 }
+
 .page-shell { max-width:1280px; margin:auto }
 .side-nav { display:none }
-header,.feature,.entry { scroll-margin-top:24px }
-@media(min-width:1240px){
- .page-shell { display:grid; grid-template-columns:minmax(0,1fr) 124px; gap:24px; max-width:1280px; padding:0 48px }
+@media screen and (min-width:1240px) {
+ .page-shell { display:grid; grid-template-columns:minmax(0,1fr) 132px; gap:32px; padding:0 48px }
  main { min-width:0; max-width:none; margin:0; padding:0 0 54px }
  .side-nav { display:block; position:sticky; top:24px; align-self:start; padding-top:21px }
- .side-nav-title { margin-bottom:10px; color:var(--quiet); font-size:12px; font-weight:600; letter-spacing:.12em }
- .side-nav ul { margin:0; padding:0; list-style:none }
- .side-nav a { position:relative; display:flex; min-height:36px; padding-left:17px; color:var(--quiet); font-size:12px; line-height:1.35; text-decoration:none; transition:color 150ms ease-out }
- .side-nav a:before { content:""; position:absolute; left:0; top:16px; width:6px; height:6px; border:1px solid var(--line); border-radius:50%; background:#fcfbf7; transform:translateY(-50%) }
- .side-nav a:after { content:""; position:absolute; left:3px; top:19px; bottom:-17px; width:1px; background:var(--line) }
- .side-nav li:last-child a:after { display:none }
- .side-nav a.is-active { color:var(--blue); font-weight:700 }
- .side-nav a.is-active:before { border-color:var(--blue); background:var(--blue) }
+ .side-nav-title { margin-bottom:8px; color:var(--quiet); font-size:12px; font-weight:600 }
+ .side-nav ul { padding:0; list-style:none }
+ .side-nav a { display:flex; min-height:36px; padding:4px 0 4px 10px; border-left:2px solid transparent; color:var(--quiet); font-size:12px; line-height:1.35; text-decoration:none }
+ .side-nav a:hover { text-decoration:underline }
+ .side-nav a.is-active { border-color:var(--blue); color:var(--blue); font-weight:700 }
 }
-@media(min-width:721px) and (max-width:900px){
- .roles { grid-template-columns:repeat(2,max-content) }
- .roles li + li { padding-left:0; border-left:0 }
-}
-@media(min-width:721px) and (max-width:980px){
- .feature { display:block }
- .case-title { display:grid; grid-template-columns:1fr auto; gap:2px 12px; padding:18px 22px; align-items:baseline }
- .case-title h2 { grid-row:1; grid-column:1; margin:0; font-size:36px }
- .case-title h2 span { display:inline }
- .case-title .date { grid-column:2; grid-row:1 }
- .case-title .role { grid-column:1/-1; font-size:14px }
- .case-title br { display:none }
- .case-title br:after { content:" " }
- .twocol { display:block }
- .flow { margin-top:24px }
-}
-@media(max-width:720px){
- main { padding-inline:22px } .top { font-size:12px; gap:8px; padding-top:16px }
- header { display:block; position:relative; padding:22px 0 24px }
- .portrait { position:absolute; right:0; top:22px; width:24%; height:auto; aspect-ratio:4/5 }
- h1 { font-size:clamp(48px,13vw,64px); max-width:73% }
+@media screen and (max-width:720px) {
+ main { padding-inline:22px }
+ .top { font-size:12px; padding-top:16px }
+ header { display:block; position:relative; padding:19px 0 11px }
+ .portrait { position:absolute; right:0; top:21px; width:24%; max-width:110px; aspect-ratio:4/5 }
+ h1 { font-size:clamp(42px,13vw,62px); max-width:73% }
  .roman { font-size:19px }
- .roles { display:grid; grid-template-columns:max-content max-content; gap:2px 14px; font-size:14px; margin-top:12px }
- .roles li + li { padding:0; border:0 }
- .intro { margin-top:16px; font-size:17px } header .meta { font-size:13px }
- .credentials { margin-top:13px; gap:22px }
- .feature { display:block }
- .case-title { display:grid; grid-template-columns:1fr auto; gap:2px 8px; padding:16px 18px; align-items:baseline }
- .case-title h2 { grid-row:1; grid-column:1; font-size:31px; margin:0 }
- .case-title h2 span { display:inline } .date { grid-column:2; grid-row:1; font-size:13px }
- .case-title .role { grid-column:1/-1; font-size:14px } .case-title br { display:none } .case-title br:after { content:" " }
- .case-body { padding:16px 18px }
- .twocol { display:block } .flow { margin-top:18px } .numbers { font-size:50px }
- .metrics { display:block; margin:10px 0 0 } .metrics > div + div { margin-top:14px } .entry,.notes { display:block } .entry { padding:26px 0 }
- .entry h2 { font-size:28px } .entry>div+div { margin-top:14px } .count { font-size:30px } .notes section+section { margin-top:22px }
+ .roles { display:grid; grid-template-columns:max-content max-content; column-gap:12px; font-size:13px }
+ .intro { margin-top:13px; font-size:17px }
+ header .meta { font-size:13px }
+ .credentials { margin-top:9px; gap:20px }
+ .case-title { padding:10px 0 12px }
+ .date { font-size:13px }
+ .case-title .role { font-size:14px }
+ .twocol { display:block }
+ .flow { margin-top:13px }
+ .metrics > div { grid-template-columns:3.35rem minmax(0,1fr); column-gap:10px }
+ .metrics b { margin-top:5px }
+ .numbers { font-size:39px }
+ .entry figure { margin-top:12px }
+ .entry { grid-template-columns:minmax(0,1fr); grid-template-areas:"heading" "body" "media"; grid-template-rows:auto; padding:23px 0 }
+ .entry figure,.entry figure.ice-cover { justify-self:start }
+ .entry figure.ice-cover { max-width:146px }
+ .project-links { column-gap:16px; font-size:14px }
 }
-.project { margin-top:28px; padding-top:18px; border-top:1px solid var(--line) }
-.project h3 { font-size:18px }
-.project p { font-size:14px; margin-top:4px }
-.creator-work { margin-top:16px; border-top:1px solid var(--line); padding-top:6px }
-.creator-work a { font-weight:600 }
-.creator-work p { font-size:15px; max-width:39em }
-.project-links { display:flex; flex-wrap:wrap; gap:4px 24px; margin-top:6px }
-.course-project .tagline { font:italic 18px/1.45 Georgia,serif; color:var(--quiet); margin-top:4px }
-.course-project { border:0; padding-bottom:0 }
-.project-stats { display:flex; gap:clamp(24px,5vw,56px); margin:17px 0 8px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line) }
-.project-stat { flex:1; min-width:0 }
-.project-number { display:block; color:var(--blue); font:600 clamp(32px,3.6vw,44px)/1.05 Georgia,"Songti SC",serif; letter-spacing:-.02em }
-.project-stat span { display:block; margin-top:5px; color:var(--quiet); font-size:13px }
-figure { margin:16px 0 0; max-width:320px }
-.course-shot { display:block; border:1px solid var(--line) }
-figure img { display:block; width:100%; height:auto }
-figcaption { margin-top:5px; font-size:12px; color:var(--quiet) }
-.field article + article { margin-top:18px }
-.field h3 { font-size:17px; font-family:inherit; margin:0 0 3px }
-.course-project .headline { margin-top:12px }
-@media(max-width:720px){
- .entry figure { max-width:285px }
- .entry>div:first-child:has(figure) { display:contents }
- .entry:has(figure) { display:flex; flex-direction:column }
- .entry figure { order:1 }
+@media screen and (max-width:360px) {
+ .growth { column-gap:10px }
+ .growth b { font-size:20px }
 }
-figure.ice-cover { max-width:180px }
-@page { size:A4; margin:10mm 11mm 12mm }
+@page { size:A4; margin:10mm 11mm }
 @media print {
  * { -webkit-print-color-adjust:exact; print-color-adjust:exact }
  html { scroll-behavior:auto }
- body { background:#fff; font-size:10px; line-height:1.42 }
- .page-shell { display:block; width:90.909%; max-width:none; margin:0; padding:0; zoom:1.1 }
- main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:18px; max-width:none; margin:0; padding:0 }
+ body { background:#fff; font-size:12px; line-height:1.48 }
+ main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:22px; max-width:none; margin:0; padding:0 }
  .top,header,.feature { grid-column:1/-1 }
- .side-nav { display:none !important }
- .top { padding:0 0 5px; font-size:8px }
- header { display:grid; grid-template-columns:minmax(0,1fr) 125px; gap:20px; align-items:center; padding:10px 0 11px }
- .portrait { position:static; width:125px; height:125px; aspect-ratio:auto; object-position:50% 35% }
- h1 { max-width:none; font-size:38px }
- .roman { font-size:16px; padding-top:1px }
- .roles { grid-template-columns:repeat(4,max-content); gap:2px 10px; margin-top:7px; font-size:10px }
- .roles li + li { border-left:1px solid var(--line); padding-left:10px }
- .intro { margin-top:7px; font-size:12px }
- header .meta { margin-top:3px; font-size:9px }
+ .top { padding:0 0 4px; font-size:10px }
+ header { grid-template-columns:minmax(0,1fr) 132px; gap:20px; padding:12px 0 14px }
+ h1 { font-size:43px }
+ .roman { font-size:17px }
+ .roles { gap:2px 12px; margin-top:6px; font-size:11px }
+ .intro { margin-top:7px; font-size:14px }
+ .meta { font-size:10px }
  .credentials { margin-top:6px; gap:16px }
- .credentials strong { font-size:23px }
- .credentials b { font-size:9px }
- .contact { margin-top:5px; font-size:8px }
- a { min-height:0 }
- .feature { display:grid; grid-template-columns:130px minmax(0,1fr); break-inside:avoid; page-break-inside:avoid }
- .case-title { display:flex; padding:11px; flex-direction:column; justify-content:space-between }
- .case-title h2 { margin:15px 0; font-size:26px }
- .case-title h2 span { display:block }
- .case-title .date { font-size:10px }
- .case-title .role { font-size:10px }
- .case-title br { display:block }
- .case-title br:after { content:none }
- .case-body { padding:10px 12px }
- .twocol { display:flex; gap:4% }
- .flow { margin-top:0 }
- .feature h3 { padding-bottom:4px; font-size:11px }
- .metrics { gap:8px; margin:6px 0 }
- .metrics > div:first-child { flex:1.5 }
- .numbers { font-size:29px }
+ .credentials strong { font-size:24px }
+ .credentials b { font-size:10px }
+ .contact { margin-top:5px; font-size:10px }
+ a { min-height:0; text-underline-offset:2px }
+ .case-title { padding:6px 0 8px; border-top-width:2px }
+ .case-title h2 { font-size:29px }
+ .date,.case-title .role { font-size:11px }
+ .case-body { padding-bottom:6px }
+ .twocol { gap:4% }
+ .feature h3 { font-size:13px }
+ .metrics { gap:6px; margin-top:6px }
+ .metrics > div { grid-template-columns:48px minmax(0,1fr); column-gap:7px }
+ .numbers { font-size:30px }
  .numbers small { font-size:10px }
- .metrics b { font-size:9px }
- .metrics p,.flow p,.feature footer p { font-size:7.5px }
- ol li { padding:4px 0 0 20px }
- ol li:before { top:6px; font-size:7px }
- .feature footer { margin-top:7px; padding-top:5px }
- .entry { display:grid; grid-template-columns:96px minmax(0,1fr); column-gap:10px; align-content:start; padding:9px 0; break-inside:avoid; page-break-inside:avoid }
- .entry>div+div { margin-top:0 }
- .entry>div:first-child:has(figure) { display:block }
- .entry:has(figure) { display:grid }
- .entry figure { order:initial; max-width:92px; margin-top:6px }
- figure.ice-cover { max-width:60px }
- .entry h2 { font-size:17px }
- #instagram h2,#xiaohongshu h2 { font-size:14px; white-space:nowrap }
- .entry .meta,.notes p { font-size:7.5px }
- .count { font-size:20px }
- .growth { gap:8px; margin:6px 0 2px }
- .growth b { font-size:13px; letter-spacing:-.04em }
- .growth span,.reel span { font-size:7px }
- .reel { gap:5px; padding:2px 0 3px }
- .creator-work { margin-top:5px; padding-top:2px }
- .creator-work p,.project p { font-size:8px }
+ .metrics b,ol h4 { margin-top:0; font-size:11px }
+ .metrics p,.flow p,.feature footer p { font-size:10px }
+ ol { margin-top:6px }
+ ol li { padding-left:18px }
+ ol li::before { font-size:9px }
+ ol li + li { margin-top:5px }
+ .feature footer { margin-top:8px; padding:5px 8px }
+ .entry { grid-template-columns:minmax(0,1fr) 83px; gap:4px 9px; grid-template-areas:"heading heading" "body media"; padding:12px 0; break-inside:avoid }
+ .entry-heading { margin:0 }
+ .entry:nth-last-child(2) { border-bottom:0 }
+ .entry h2 { font-size:21px }
+ .entry figure,.entry figure.ice-cover { margin-top:2px; align-self:start }
+ .ice-cover .reel-title,.field figcaption .keep { white-space:normal }
+ #instagram { border-top:0 }
+ .count { font-size:23px }
+ .growth { gap:4px 9px; margin:6px 0 2px }
+ .growth b,.project-number { font-size:17px }
+ .growth span,.reel span,.project-stat span,figcaption { font-size:9px }
+ .reel { gap:4px; padding:2px 0 }
+ .reel + .reel { border-top:0 }
+ .creator-work { margin-top:5px }
+ .creator-work p { font-size:11px }
  .field article + article { margin-top:7px }
- .field h3,.project h3 { font-size:10px }
- .course-project .tagline { font-size:10px }
- .project-stats { gap:12px; margin:6px 0 3px; padding:5px 0 }
- .project-number { font-size:22px }
- .project-stat span,figcaption { font-size:7px }
- .project-links { gap:2px 12px; margin-top:3px }
+ .field h3 { font-size:12px }
+ .course-project .tagline { font-size:12px }
+ .project-stats { gap:8px 12px; margin-top:6px }
+ .project-links { gap:3px 12px }
 }
 </style>
 <div class="page-shell">
@@ -230,43 +201,48 @@ figure.ice-cover { max-width:180px }
 <div class="bio"><h1>黄元畅<span class="roman" lang="en">HUANG Yuanchang</span></h1>
 <ul class="roles" aria-label="个人标签"><li lang="en">AI Builder</li><li lang="en">Content Creator</li><li lang="en">AI Native</li><li lang="en">Frontend Designer</li></ul>
 <p class="intro" lang="en"><span>Connect with Creators,</span> <span>Speak to the Audience</span></p>
-<p class="meta">早稻田大学国际教养学部（SILS）· 大一 · 2026 年春季入学 · 日本政府（MEXT）奖学金</p>
+<p class="meta">早稻田大学国际教养学部（SILS）· 大一 · <span class="keep">2026 年春季入学</span> · <span class="keep">日本政府（MEXT）奖学金</span></p>
 <div class="credentials" aria-label="语言成绩"><strong><b>IELTS</b>8.0</strong><strong><b>JLPT</b>N2</strong></div>
 <p class="contact"><a href="mailto:huangyuanchang2006@gmail.com">huangyuanchang2006@gmail.com</a></p></div>
 <img class="portrait" src="portrait.jpg" alt="樱花树下的黄元畅">
 </header>
 <section class="feature" id="cosmos">
-<div class="case-title"><p class="date">2026.08–09</p><h2>宇宙 <span>EBIKE</span></h2><p class="role">Cosmoswork <br>市场与品牌内容实习</p></div>
+<div class="case-title"><p class="date">2026.08–09</p><h2>宇宙 <span>EBIKE</span></h2><p class="role">Cosmoswork 市场与品牌内容实习</p></div>
 <div class="case-body">
 <div class="twocol"><div class="deliver"><h3>跨平台发布交付</h3>
-<div class="metrics"><div><span class="numbers">18<small>期</small></span><b>小宇宙播客包装与发布准备</b><p>把已有视频整理成播客，在 Figma 做封面，重写标题、Show Notes 和嘉宾介绍。</p></div>
-<div><span class="numbers">6<small>条</small></span><b>YouTube 英文包装</b><p>按品牌语气改写英文标题与简介，排定发布时间。</p></div></div>
+<div class="metrics"><div><span class="numbers">18<small>期</small></span><div><b>小宇宙播客包装与发布准备</b><p>把已有视频整理成播客，在 Figma <span class="keep">做封面</span>，重写<span class="keep">标题</span>、<span class="keep">Show Notes</span> 和<span class="keep">嘉宾介绍</span>。</p></div></div>
+<div><span class="numbers">6<small>条</small></span><div><b>YouTube 英文包装</b><p>按品牌语气改写英文标题与简介，<span class="keep">排定发布时间</span>。</p></div></div></div>
 <a href="https://youtu.be/bLVCycm2_6Q">观看品牌 YouTube 视频<i aria-hidden="true">↗</i></a></div>
 <div class="flow"><h3>我设计的 AI 工作流</h3><ol>
-<li><b>先做一条完整样例</b><p>用一期节目做样稿，和负责人定下发布标准。</p></li>
-<li><b>用 AI 批量改写文案</b><p>按样稿和平台要求生成标题、简介初稿。</p></li>
-<li><b>逐条核对，再排期</b><p>我对照原始素材检查事实和英文语气，再确认文件版本和平台规格。</p></li></ol></div></div>
-<footer><p><b>字幕实例</b>　我把中英 SRT 字幕翻译做成了 skill：保留时间轴、按术语表统一译法，最后对着视频逐句校字幕。</p></footer></div>
+<li><h4>先做一条完整样例</h4><p>用一期节目做样稿，和负责人<span class="keep">定下发布标准</span>。</p></li>
+<li><h4>用 AI 批量改写文案</h4><p>按样稿和平台要求生成<span class="keep">标题</span>、<span class="keep">简介初稿</span>。</p></li>
+<li><h4>逐条核对，再排期</h4><p>我对照原始素材检查事实和英文语气，<span class="keep">再确认文件版本</span>和<span class="keep">平台规格</span>。</p></li></ol></div></div>
+<footer><p><b>字幕实例</b>　我把中英 SRT 字幕翻译<span class="keep">做成了 skill</span>：保留时间轴、按<span class="keep">术语表</span>统一译法，最后<span class="keep">对着视频</span><span class="keep">逐句校字幕</span>。</p></footer></div>
 </section>
-<section class="entry" id="instagram"><div><p class="meta">早稻田 CSSA · 官方账号</p><h2>Instagram 运营</h2><figure class="ice-cover"><img src="ice-cover.jpg" alt="《この氷、何になる》原封面，冰块落入杯中，标题为「この氷、何になる？」"><figcaption>早稻田祭 Reel《この氷、何になる》封面</figcaption></figure></div>
-<div><p>策划、拍摄并剪辑两条早稻田祭 Reels，完成封面设计、发布与数据跟踪。</p>
-<div class="growth" aria-label="Instagram 后台增长"><div><b>+150.2%</b><span>观看</span></div><div><b>+435.6%</b><span>观看人数</span></div><div><b>+155.5%</b><span>粉丝观看</span></div></div>
+<section class="entry" id="instagram"><div class="entry-heading"><p class="meta">早稻田 CSSA · 官方账号</p><h2>Instagram 运营</h2></div>
+<div class="entry-body"><p>策划、拍摄并剪辑两条<span class="keep">早稻田祭 Reels</span>，完成<span class="keep">封面设计</span>、发布与<span class="keep">数据跟踪</span>。</p>
+<div class="growth" aria-label="Instagram 后台增长" aria-describedby="instagram-period"><div><b>+150.2%</b><span>观看</span></div><div><b>+435.6%</b><span>观看人数</span></div><div><b>+155.5%</b><span>粉丝观看</span></div></div>
+<p class="meta" id="instagram-period">Instagram 后台 30 天对比上一周期 · 2026.11.21 存档</p>
 <div class="reel"><a href="https://www.instagram.com/reel/DfUbYvfTtE5/" lang="ja">この氷、何になる<i aria-hidden="true">↗</i></a><span>1,406 次浏览</span></div>
-<div class="reel"><a href="https://www.instagram.com/reel/DfdZ1IvzCk6/">One Last Sweet Stop<i aria-hidden="true">↗</i></a><span>2,175 次浏览</span></div><p class="meta">Instagram 后台 30 天对比上一周期 · 2026.11.21 存档</p></div></section>
-<section class="entry" id="xiaohongshu"><div><p class="meta">小红书 · 独立运营</p><h2>Chambers 在东京</h2><figure><img src="may-festival.jpg" alt="台阶旁的学生与「早大生在东大」标题"><figcaption>个人 Vlog《东大五月祭》封面</figcaption></figure></div>
-<div><p><strong class="count">32,983</strong>次观看（单篇图文）</p><p class="headline">《06高中生入职新航道✌️雅思8分助教体验》</p><p class="meta">封面点击率 23.1% · 小红书数据，2026.08.10</p>
+<div class="reel"><a href="https://www.instagram.com/reel/DfdZ1IvzCk6/">One Last Sweet Stop<i aria-hidden="true">↗</i></a><span>2,175 次浏览</span></div></div>
+<figure class="ice-cover"><img src="ice-cover.jpg" alt="《この氷、何になる》原封面，冰块落入杯中，标题为「この氷、何になる？」"><figcaption>早稻田祭 Reel<span class="reel-title">《この氷、<span class="keep">何になる》</span></span>封面</figcaption></figure></section>
+<section class="entry" id="xiaohongshu"><div class="entry-heading"><p class="meta">小红书 · 独立运营</p><h2>Chambers 在东京</h2></div>
+<div class="entry-body"><p><strong class="count">32,983</strong>次观看（单篇图文）</p><p class="headline">《06高中生入职新航道✌️雅思8分<span class="keep">助教体验</span>》</p><p class="meta">封面点击率 23.1% · <span class="keep">小红书数据</span>，2026.08.10</p>
 <div class="creator-work">
-<a href="https://xhslink.cn/o/9lxFRxKKpcL">看年终视频《我给这一年取名为韧》<i aria-hidden="true">↗</i></a>
-<p>写口播稿前，先用 Excalidraw 画出三幕情绪曲线（Story Arc），再据此选镜头、定剪辑点。</p>
+<a href="https://xhslink.cn/o/9lxFRxKKpcL">看年终视频《我给这一年取名<span class="keep">为韧》<i aria-hidden="true">↗</i></span></a>
+<p>写口播稿前，先用 Excalidraw 画出<span class="keep">三幕情绪曲线</span>（Story Arc），再据此<span class="keep">选镜头</span>、<span class="keep">定剪辑点</span>。</p>
 </div>
-<div class="creator-work"><a href="https://xhslink.cn/o/3DDCARmD3Aw">看 Vlog《东大五月祭｜最好的时光是我一个人度过的》<i aria-hidden="true">↗</i></a></div></div></section>
-<section class="entry field" id="community"><div><p class="meta">日本 · 活动经历</p><h2>现场与社群</h2><figure><img src="connectiv.jpg" alt="黄元畅与其他参与者在 OpenAI Connectiv 现场翻阅活动材料"><figcaption>OpenAI Connectiv 活动现场</figcaption></figure></div>
-<div><article><h3>早稻田祭现场运营</h3><p>担任环境担当，用日语与主办方确认要求，指导摊位同学按九类分拣垃圾，跟进现场检查。</p></article>
-<article><h3>OpenAI Connectiv</h3><p>在日本参加 AI 与创作者线下活动，结识了多位 AI Builder、软件工程师和内容创作者。</p></article></div></section>
-<section class="entry course-project" id="ratemycourse"><div><p class="meta">团队项目 · 选课评测网站</p><h2 lang="en">RateMyCourse</h2><p lang="en" class="tagline">Find the Course that Fit You Best</p><figure><a class="course-shot" aria-label="打开 RateMyCourse 首页" href="https://huangyuanchang2006.github.io/ratemycourse/"><img src="landing.jpg" alt="RateMyCourse 首页，主标题为 Chart your own course."></a><figcaption>RateMyCourse 首页</figcaption></figure></div>
-<div><p>发起 <strong>RateMyCourse</strong> 选课评测网站，让早稻田学生在选课前读到同学的修课经历：作业怎么做、每周多忙、建议先学什么。</p>
+<div class="creator-work"><a href="https://xhslink.cn/o/3DDCARmD3Aw">看 Vlog《东大五月祭｜最好的时光是我一个人<span class="keep">度过的》<i aria-hidden="true">↗</i></span></a></div></div>
+<figure><img src="may-festival.jpg" alt="台阶旁的学生与「早大生在东大」标题"><figcaption>个人 Vlog《东大五月祭》封面</figcaption></figure></section>
+<section class="entry field" id="community"><div class="entry-heading"><p class="meta">日本 · 活动经历</p><h2>现场与社群</h2></div>
+<div class="entry-body"><article><h3>早稻田祭现场运营</h3><p>担任环境担当，用日语与主办方<span class="keep">确认要求</span>，指导摊位同学按九类分拣<span class="keep">垃圾</span>，<span class="keep">跟进现场检查</span>。</p></article>
+<article><h3>OpenAI Connectiv</h3><p>在日本参加 AI 与创作者线下活动，结识了多位 <span class="keep">AI Builder</span>、软件工程师和<span class="keep">内容创作者</span>。</p></article></div>
+<figure><img src="connectiv.jpg" alt="黄元畅与其他参与者在 OpenAI Connectiv 现场翻阅活动材料"><figcaption>OpenAI <span class="keep">Connectiv 活动现场</span></figcaption></figure></section>
+<section class="entry course-project" id="ratemycourse"><div class="entry-heading"><p class="meta">团队项目 · 选课评测网站</p><h2 lang="en">RateMyCourse</h2><p lang="en" class="tagline">Find the Course that Fit You Best</p></div>
+<div class="entry-body"><p>发起 <strong>RateMyCourse</strong> 选课评测网站，让早稻田学生在选课前读到同学的<span class="keep">修课经历</span>：作业怎么做、<span class="keep">每周多忙</span>、<span class="keep">建议先学什么</span>。</p>
 <div class="project-stats" aria-label="RateMyCourse 项目数据"><div class="project-stat"><strong class="project-number">1,500+</strong><span>上线 10 天内浏览</span></div><div class="project-stat"><strong class="project-number">36</strong><span>GitHub 公开仓库提交</span></div></div>
-<div class="project-links"><a href="https://huangyuanchang2006.github.io/ratemycourse/">访问 RateMyCourse<i aria-hidden="true">↗</i></a><a href="https://drive.google.com/file/d/17yf361bfI6BYPTwaVFrx-vmY7Pc00Fec/view?usp=drive_link">观看团队 Pitch 视频<i aria-hidden="true">↗</i></a></div></div></section>
+<div class="project-links"><a href="https://huangyuanchang2006.github.io/ratemycourse/">访问 RateMyCourse<i aria-hidden="true">↗</i></a><a href="https://drive.google.com/file/d/17yf361bfI6BYPTwaVFrx-vmY7Pc00Fec/view?usp=drive_link">观看团队 Pitch 视频<i aria-hidden="true">↗</i></a></div></div>
+<figure><a class="course-shot" aria-label="打开 RateMyCourse 首页" href="https://huangyuanchang2006.github.io/ratemycourse/"><img src="landing.jpg" alt="RateMyCourse 首页，主标题为 Chart your own course."></a><figcaption>RateMyCourse <span class="keep">首页</span></figcaption></figure></section>
 </main>
 <nav class="side-nav" aria-label="页面目录">
 <p class="side-nav-title">目录</p>
